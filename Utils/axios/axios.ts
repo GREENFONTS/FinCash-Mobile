@@ -15,18 +15,18 @@ const axiosInstance = axios.create({
   withCredentials: false,
 });
 
-axiosInstance.interceptors.request.use(
-  (config) => {
-    const token = localStorage.getItem("token");
-    if (token) {
-      config.headers = {
-        ...config.headers,
-        Authorization: `Bearer ${token}`,
-      };
-    }
-    return config;
-  },
-  (err) => Promise.reject(err),
-);
+// axiosInstance.interceptors.request.use(
+//   (config) => {
+//     const token = localStorage.getItem("token");
+//     if (token) {
+//       config.headers = {r
+//         ...config.headers,
+//         Authorization: `Bearer ${token}`,
+//       };
+//     }
+//     return config;
+//   },
+//   (err) => Promise.reject(err),
+// );
 
 export default axiosInstance;

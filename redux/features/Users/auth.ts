@@ -20,14 +20,16 @@ const initialState: Auth = {
 };
 
 export const UserLogin = (data: LoginData) => async () => {
+  console.log(data)
   try {
     const res = await UserService.Login(data);
-    dispatch(AddUserData(res.data));
-    dispatch(setLoading(false));
+    console.log(res.data)
+    // dispatch(AddUserData(res.data));
+    // dispatch(setLoading(false));
   } catch (err: any) {
     console.log(err);
-    dispatch(setLoading(false));
-    dispatch(createError(err?.response?.data["404"].errors[0]));
+    // dispatch(setLoading(false));
+    // dispatch(createError(err?.response?.data["404"].errors[0]));
   }
 };
 
@@ -65,7 +67,7 @@ export const verifyToken = (token: string) => async () => {
         }),
       );
     } else {
-      localStorage.clear();
+      // localStorage.clear();
       dispatch(setLoading(false));
     }
   } catch (err) {
